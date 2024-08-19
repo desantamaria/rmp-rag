@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Emily Johnson",
+        "subject": "Biology",
+        "stars": 4,
+        "review": "Engaging lectures and fair grading. Could improve on office hours availability."
+      },
+      {
+        "professor": "Prof. Michael Chen",
+        "subject": "Computer Science",
+        "stars": 5,
+        "review": "Excellent teacher! Makes complex topics easy to understand. Always willing to help."
+      },
+      {
+        "professor": "Dr. Sarah Williams",
+        "subject": "Psychology",
+        "stars": 3,
+        "review": "Knowledgeable but lectures can be dry. Assignments are challenging."
+      },
+      {
+        "professor": "Prof. Robert Taylor",
+        "subject": "Mathematics",
+        "stars": 4,
+        "review": "Clear explanations and helpful practice problems. Sometimes moves too quickly."
+      },
+      {
+        "professor": "Dr. Lisa Garcia",
+        "subject": "Chemistry",
+        "stars": 5,
+        "review": "Passionate about the subject. Lab sessions are well-organized and informative."
+      },
+      {
+        "professor": "Prof. David Brown",
+        "subject": "History",
+        "stars": 2,
+        "review": "Lectures are disorganized. Grading seems inconsistent."
+      },
+      {
+        "professor": "Dr. Amanda Lee",
+        "subject": "English Literature",
+        "stars": 4,
+        "review": "Insightful analysis of texts. Encourages class discussions. Heavy workload."
+      },
+      {
+        "professor": "Prof. James Wilson",
+        "subject": "Physics",
+        "stars": 3,
+        "review": "Knowledgeable but can be intimidating. Exams are very difficult."
+      },
+      {
+        "professor": "Dr. Jennifer Martinez",
+        "subject": "Sociology",
+        "stars": 5,
+        "review": "Thought-provoking lectures. Creates a welcoming classroom environment."
+      },
+      {
+        "professor": "Prof. Thomas Anderson",
+        "subject": "Economics",
+        "stars": 4,
+        "review": "Clear explanations of complex concepts. Could provide more real-world examples."
+      },
+      {
+        "professor": "Dr. Rachel Kim",
+        "subject": "Art History",
+        "stars": 5,
+        "review": "Passionate and knowledgeable. Field trips to museums were fantastic."
+      },
+      {
+        "professor": "Prof. Daniel White",
+        "subject": "Political Science",
+        "stars": 2,
+        "review": "Seems biased in lectures. Grading criteria are unclear."
+      },
+      {
+        "professor": "Dr. Laura Thompson",
+        "subject": "Environmental Science",
+        "stars": 4,
+        "review": "Engaging lectures with relevant current events. Group projects were challenging but rewarding."
+      },
+      {
+        "professor": "Prof. Christopher Davis",
+        "subject": "Philosophy",
+        "stars": 3,
+        "review": "Interesting topics but can be hard to follow. More structure in discussions would help."
+      },
+      {
+        "professor": "Dr. Olivia Parker",
+        "subject": "Neuroscience",
+        "stars": 5,
+        "review": "Brilliant researcher and teacher. Makes complex topics accessible. Inspiring mentor."
+      },
+      {
+        "professor": "Prof. Andrew Miller",
+        "subject": "Business Administration",
+        "stars": 4,
+        "review": "Brings real-world experience to the classroom. Could improve on feedback for assignments."
+      },
+      {
+        "professor": "Dr. Sophia Rodriguez",
+        "subject": "Linguistics",
+        "stars": 5,
+        "review": "Fascinating lectures. Creates a supportive learning environment. Always available for help."
+      },
+      {
+        "professor": "Prof. Kevin Wong",
+        "subject": "Statistics",
+        "stars": 3,
+        "review": "Explains concepts well but moves too fast. More practice problems would be helpful."
+      },
+      {
+        "professor": "Dr. Elizabeth Foster",
+        "subject": "Anthropology",
+        "stars": 4,
+        "review": "Engaging storyteller. Field work opportunities were valuable. Heavy reading load."
+      },
+      {
+        "professor": "Prof. Jonathan Green",
+        "subject": "Music Theory",
+        "stars": 5,
+        "review": "Passionate and inspiring. Makes theory accessible and fun. Great at providing individual feedback."
+      }
+    ]
+  }
