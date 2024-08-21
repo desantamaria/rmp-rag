@@ -10,6 +10,8 @@ export default function Home() {
         }
     ])
     const [message, setMessage] = useState('')
+    const [rmplink, setRMPLink] = useState('https://www.scrapingcourse.com/ecommerce/')
+
     const sendMessage = async () => {
         setMessages((messages)=>[
             ...messages,
@@ -46,6 +48,18 @@ export default function Home() {
             })
         })
     }
+
+    const scrape = async () => {
+        const response = fetch('/api/scrape', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: rmplink
+        }).then((res) => res.json())
+        //   .then((data) => console.log(data))
+    }
+
   return(
     <Box
         width="100vw"
@@ -103,6 +117,7 @@ export default function Home() {
                 <Button variant="contained" onClick={sendMessage}>Send</Button>
             </Stack>
         </Stack>
+        <Button variant="contained" onClick={scrape}>TEST SCRAPE</Button>
     </Box>
   )
 }
