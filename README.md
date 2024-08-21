@@ -19,6 +19,12 @@ Create the rag enviroment using Conda and the installed Python version
 conda create -n rag python
 ```
 
+Install rag enviroment dependancies
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the development server:
 
 ```bash
