@@ -22,7 +22,7 @@ conda create -n rag python
 Run the development server:
 
 ```bash
-conda activate
+conda activate rag
 ```
 
 ```bash
