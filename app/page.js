@@ -78,7 +78,7 @@ export default function Home() {
                     alignItems={message.role === "assistant" ? 'flex-start' : 'flex-end'}
                 >
                     <Box
-                        bgcolor={message.role === 'assistant' ? 'primary.main' : 'secondary.main'}
+                        bgcolor={message.role === 'assistant' ? 'secondary.main' : 'primary.main'}
                         color="white"
                         borderRadius={16}
                         p={3}
