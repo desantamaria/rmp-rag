@@ -2,9 +2,16 @@ import { NextResponse } from "next/server";
 import { Pinecone } from "@pinecone-database/pinecone";
 import axios from "axios";
 import * as cheerio from 'cheerio';
+import { OpenAI } from "openai";
+
 
 export async function POST(req) {
     const data = await req.text()
+    const pc = new Pinecone({
+        apiKey: process.env.PINECONE_API_KEY,
+    });
+    const index = pc.index('rag').namespace('ns1');
+    const openai = new OpenAI();
     let results
 
     try {
@@ -38,8 +45,26 @@ export async function POST(req) {
                 }
                 
                 console.log(professorResult)
-                results = professorResult
-            })
+                results = professorResult                
+        })
+
+        const embedding = await openai.embeddings.create({
+            model: 'text-embedding-3-small',
+            input: JSON.stringify(results),
+            encoding_format: 'float',
+        })
+
+        await index.upsert([
+            {
+                id: `professor-${results.name}`, // Unique identifier for the professor
+                values: embedding.data[0].embedding, // The vector representation
+                metadata: {
+                    name: results.name,
+                    avgRating: results.avgRating,
+                    reviews: results.reviews.map(review => review.comment), // Storing the comments
+                },
+            },
+        ])
 
     } catch (error) {
         console.error("Error fetching data:", error)
