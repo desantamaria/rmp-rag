@@ -10,7 +10,7 @@ export default function Home() {
         }
     ])
     const [message, setMessage] = useState('')
-    const [rmplink, setRMPLink] = useState('https://www.scrapingcourse.com/ecommerce/')
+    const [rmplink, setRMPLink] = useState('https://www.ratemyprofessors.com/professor/1486169')
 
     const sendMessage = async () => {
         setMessages((messages)=>[
@@ -57,7 +57,7 @@ export default function Home() {
             },
             body: rmplink
         }).then((res) => res.json())
-        //   .then((data) => console.log(data))
+          .then((data) => console.log(data))
     }
 
   return(
