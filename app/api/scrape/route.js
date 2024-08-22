@@ -12,6 +12,15 @@ export async function POST(req) {
             .then(({data}) => {
                 const $ = cheerio.load(data)
 
+                const professors = $('.TeacherInfo__StyledTeacher-ti1fio-1')
+                    .map((_, professor)=>{
+                        const $professor = $(professor)
+                        const avgRating = $professor.find('.RatingValue__Numerator-qw8sqy-2').text()
+                        const professorName = $professor.find('.NameTitle__Name-dowf0z-0').text()                        
+                        return {'name': professorName, 'avgRating': avgRating}
+                    })
+                    .toArray()
+
                 const reviews = $('.Rating__StyledRating-sc-1rhvpxz-1')
                     .map((_, review) => {
                         const $review = $(review)
@@ -20,7 +29,16 @@ export async function POST(req) {
                         return {'rating': rating, 'comment': comment}
                     })
                     .toArray()
-                results = reviews
+
+
+                const professorResult = {
+                    name: professors[0].name,
+                    avgRating: professors[0].avgRating,
+                    reviews: reviews
+                }
+                
+                console.log(professorResult)
+                results = professorResult
             })
 
     } catch (error) {
