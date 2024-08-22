@@ -1,6 +1,8 @@
 'use client'
-import { Box, Button, Stack, TextField } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack, TextField } from "@mui/material";
 import { useState } from "react";
+import SendIcon from '@mui/icons-material/Send';
+import TuneIcon from '@mui/icons-material/Tune';
 
 export default function Home() {
     const [messages, setMessages] = useState([
@@ -11,6 +13,16 @@ export default function Home() {
     ])
     const [message, setMessage] = useState('')
     const [rmplink, setRMPLink] = useState('https://www.ratemyprofessors.com/professor/1486169')
+    const [open, setOpen] = useState(false)
+
+
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     const sendMessage = async () => {
         setMessages((messages)=>[
@@ -57,7 +69,14 @@ export default function Home() {
             },
             body: rmplink
         }).then((res) => res.json())
-          .then((data) => console.log(data))
+          .then((data) => {
+            console.log(data)
+            setMessages((messages)=>[
+                ...messages,
+                {role: "assistant", content: `Added professor information about ${data.name}`},
+            ])
+            handleClose()
+        })
     }
 
   return(
@@ -68,14 +87,21 @@ export default function Home() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        sx={{
+            background: "rgb(244,208,63)",
+            background: "linear-gradient(339deg, rgba(244,208,63,1) 0%, rgba(22,160,133,1) 100%)",
+        }}
     >
         <Stack
             direction="column"
             width="500px"
             height="700px"
-            border="1px solid black"
+            border="1px solid #f4d03f"
             p={2}
             spacing={3}
+            sx={{
+                background: "rgba(255, 255, 255, .5)",
+            }}
         >
             <Stack
                 direction="column"
@@ -114,10 +140,35 @@ export default function Home() {
                         setMessage(e.target.value)
                     }}
                 />
-                <Button variant="contained" onClick={sendMessage}>Send</Button>
+                <Button variant="contained" onClick={sendMessage}><SendIcon/></Button>
+                <Button variant="contained" onClick={handleOpen}><TuneIcon/></Button>
             </Stack>
         </Stack>
-        <Button variant="contained" onClick={scrape}>TEST SCRAPE</Button>
+        
+
+
+        <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Enter a Professor's RMP Profile Link</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Please enter a link to add to the AI's knowledge
+                    </DialogContentText>
+                    <TextField 
+                        autoFocus
+                        margin="dense"
+                        label="Collection Name"
+                        type="text"
+                        fullWidth
+                        value={rmplink}
+                        onChange={(e) => {setRMPLink(e.target.value)}}
+                        variant="outlined"
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={scrape}>Save</Button>
+                </DialogActions>
+            </Dialog>
     </Box>
   )
 }
