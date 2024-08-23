@@ -56,12 +56,12 @@ export async function POST(req) {
 
         await index.upsert([
             {
-                id: `professor-${results.name}`, // Unique identifier for the professor
-                values: embedding.data[0].embedding, // The vector representation
+                id: `professor-${results.name}`, 
+                values: embedding.data[0].embedding, 
                 metadata: {
                     name: results.name,
                     avgRating: results.avgRating,
-                    reviews: results.reviews.map(review => review.comment), // Storing the comments
+                    reviews: results.reviews.map(review => review.comment), 
                 },
             },
         ])
