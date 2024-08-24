@@ -172,7 +172,7 @@ export default function Home() {
 
 
         <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Enter a Professor's RMP Profile Link</DialogTitle>
+                <DialogTitle>Enter a Professors RMP Profile Link</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Please enter a link to add to the AI knowledge
@@ -180,7 +180,7 @@ export default function Home() {
                     <TextField 
                         autoFocus
                         margin="dense"
-                        label="Collection Name"
+                        label="RMP Link"
                         type="text"
                         fullWidth
                         value={rmplink}
