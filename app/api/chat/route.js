@@ -60,13 +60,13 @@ export async function POST(req) {
         resultString+=`
         
         Professor: ${match.id}
-        Review: ${match.metadata.stars}
+        Review: ${match.metadata.review}
         Subject: ${match.metadata.subject}
         Stars: ${match.metadata.stars}
         \n\n
         `
     })
-
+    console.log(resultString)
     const lastMessage = data[data.length - 1]
     const lastMessageContent = lastMessage.content + resultString
     const lastDataWithoutLastMessage = data.slice(0, data.length - 1)

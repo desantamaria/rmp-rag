@@ -22,9 +22,10 @@ export async function POST(req) {
                 const professors = $('.TeacherInfo__StyledTeacher-ti1fio-1')
                     .map((_, professor)=>{
                         const $professor = $(professor)
-                        const avgRating = $professor.find('.RatingValue__Numerator-qw8sqy-2').text()
-                        const professorName = $professor.find('.NameTitle__Name-dowf0z-0').text()                        
-                        return {'name': professorName, 'avgRating': avgRating}
+                        const stars = $professor.find('.RatingValue__Numerator-qw8sqy-2').text()
+                        const professorName = $professor.find('.NameTitle__Name-dowf0z-0').text()
+                        const subject = $professor.find('.TeacherDepartment__StyledDepartmentLink-fl79e8-0').text()                        
+                        return {'name': professorName, 'stars': stars, 'subject': subject}
                     })
                     .toArray()
 
@@ -40,8 +41,9 @@ export async function POST(req) {
 
                 const professorResult = {
                     name: professors[0].name,
-                    avgRating: professors[0].avgRating,
-                    reviews: reviews
+                    stars: professors[0].stars,
+                    review: reviews[0].comment,
+                    subject: professors[0].subject
                 }
                 
                 console.log(professorResult)
@@ -59,9 +61,9 @@ export async function POST(req) {
                 id: `professor-${results.name}`, 
                 values: embedding.data[0].embedding, 
                 metadata: {
-                    name: results.name,
-                    avgRating: results.avgRating,
-                    reviews: results.reviews.map(review => review.comment), 
+                    stars: results.stars,
+                    review :results.review,
+                    subject: results.subject 
                 },
             },
         ])
