@@ -85,7 +85,7 @@ export default function Home() {
         sx={{
             color: "white",
             height: "100vh",
-            backgrounnd: "rgb(244,208,63)",
+            background: "rgb(244,208,63)",
             background: "linear-gradient(339deg, rgba(244,208,63,1) 0%, rgba(22,160,133,1) 100%)",
         }}
     >
@@ -175,7 +175,7 @@ export default function Home() {
                 <DialogTitle>Enter a Professor's RMP Profile Link</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Please enter a link to add to the AI's knowledge
+                        Please enter a link to add to the AI knowledge
                     </DialogContentText>
                     <TextField 
                         autoFocus
