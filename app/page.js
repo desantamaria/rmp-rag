@@ -15,9 +15,14 @@ import Head from "next/head"
 import Link from "next/link"
 
 import theme from "../theme"
+import { redirect } from "next/dist/server/api-utils"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 export default function Home() {
     const {isLoaded, isSignedIn, user} = useUser()
+    const router = useRouter()
+
     const HandleSubmit = async () => {
         const checkoutSession = await fetch('/api/checkout_session', {
             method: 'POST',
@@ -43,13 +48,13 @@ export default function Home() {
             console.warn(error.message)
         }
     }
-    const checkSignIn = async()=>{
+    const checksignin=async()=> {
         if(!user){
             alert("Please sign in before continuing")
             return
         }
-        res.redirect('/ratemyprofgpt')
-
+        router.push('/ratemyprofgpt')
+        
     }
   return (
     <Container maxWidth="false" disableGutters>
@@ -82,7 +87,13 @@ export default function Home() {
         >
             <Typography variant="h2">Welcome Rate My Professor Chat Assistant</Typography>
             <Typography variant="h5" gutterBottom>Get assistance signing up for your next classes</Typography>
-            <Button variant="contained" href="/ratemyprofgpt" /*onClick={checkSignIn}*/ color="primary" sx={{mt: 2}}>Get Started</Button>
+            <Button 
+            variant="contained" 
+            //href="/ratemyprofgpt"
+            onClick={checksignin} 
+            color="primary" 
+            sx={{mt: 2}}
+            >Get Started</Button>
         </Box> 
 
         <Container>
