@@ -1,8 +1,9 @@
 'use client'
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack, TextField } from "@mui/material";
+import { AppBar, Box, Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack, TextField, Toolbar, Typography } from "@mui/material";
 import { useState } from "react";
 import SendIcon from '@mui/icons-material/Send';
 import TuneIcon from '@mui/icons-material/Tune';
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
     const [messages, setMessages] = useState([
@@ -80,18 +81,41 @@ export default function Home() {
     }
 
   return(
+    <Container maxWidth="false" disableGutters 
+        sx={{
+            color: "white",
+            height: "100vh",
+            backgrounnd: "rgb(244,208,63)",
+            background: "linear-gradient(339deg, rgba(244,208,63,1) 0%, rgba(22,160,133,1) 100%)",
+        }}
+    >
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" style={{flexGrow: 1}}>Rate My Professor Chat Assistant</Typography>
+                <SignedOut>
+                    <Button color="inherit" href="/sign-in">
+                            Login
+                    </Button>
+                    <Button color="inherit" href="/sign-up">
+                            Sign up
+                    </Button>
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+            </Toolbar>
+        </AppBar>
+
     <Box
         width="100vw"
-        height="100vh"
+        // height="100vh"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        sx={{
-            background: "rgb(244,208,63)",
-            background: "linear-gradient(339deg, rgba(244,208,63,1) 0%, rgba(22,160,133,1) 100%)",
-        }}
+        padding="100px"
     >
+        
         <Stack
             direction="column"
             width="500px"
@@ -170,5 +194,6 @@ export default function Home() {
                 </DialogActions>
             </Dialog>
     </Box>
+    </Container>
   )
 }
