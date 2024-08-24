@@ -175,7 +175,7 @@ export default function Home() {
                 <DialogTitle>Enter a Professor's RMP Profile Link</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Please enter a link to add to the AI's knowledge
+                        Please enter a link to add to the AI knowledge
                     </DialogContentText>
                     <TextField 
                         autoFocus
