@@ -57,10 +57,16 @@ export default function Home() {
         
     }
   return (
-    <Container maxWidth="false" disableGutters>
+    <Container maxWidth="false" disableGutters 
+        sx={{
+            color: "white",
+            height: "100vh",
+            backgrounnd: "rgb(244,208,63)",
+            background: "linear-gradient(339deg, rgba(244,208,63,1) 0%, rgba(22,160,133,1) 100%)",
+        }}
+    >
         <Head>
             <title>Rate My Professor Chat Assistant</title>
-            <meta name = 'description' content="Create flashcard from your text" />
         </Head>
 
         <AppBar position="static">
@@ -80,7 +86,15 @@ export default function Home() {
             </Toolbar>
         </AppBar>
 
-        <Container sx={{paddingTop: "30px"}}>
+        <Container 
+            sx={{
+                paddingTop: "120px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
 
         <Box
             textAlign="center"
@@ -96,12 +110,11 @@ export default function Home() {
             >Get Started</Button>
         </Box> 
 
-        <Container>
+            <Container>
                 <Typography
                     variant="h4"
                     textAlign={"center"}
                     gutterBottom
-                    color={"black"}
                     mt={10}
                 >
                     Features
@@ -127,10 +140,9 @@ export default function Home() {
                                 textAlign={"center"}
                                 my={2.5}
                             >
-                                Easy Text Input
+                                Sentiment analysis
                             </Typography>
-                            Simply input your text and let our software do the
-                            rest. Its simple!
+                            Analyze student reviews to determine overall sentiment towards professors
                         </Paper>
                     </Grid>
                     <Grid item xs={4} style={{ width: "100%" }}>
@@ -153,9 +165,9 @@ export default function Home() {
                                 textAlign={"center"}
                                 my={2.5}
                             >
-                                Customizable
-                            </Typography> 
-                            The software can adapt to different difficulty levels or focus on specific topics.
+                                Insights
+                            </Typography>
+                            Given professor profile give details about teaching style, subjects and reviews.
                         </Paper>
                     </Grid>
                     <Grid item xs={4} style={{ width: "100%" }}>
@@ -178,9 +190,9 @@ export default function Home() {
                                 textAlign={"center"}
                                 my={2.5}
                             >
-                                Accesible
+                                Personalized recommendations
                             </Typography>
-                            The software can rephrase complex concepts into simpler terms.
+                            Suggest professors or courses that might be a good fit for their learning style
                         </Paper>
                     </Grid>
                 </Grid>
